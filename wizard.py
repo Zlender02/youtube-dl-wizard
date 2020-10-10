@@ -32,34 +32,34 @@ q = Quit
     print ()
     if (input_format == "0"):
         print ("Downloading...")
-        os.system('python youtube-dl.py --ffmpeg-location ffmpeg_ffprobe -q --audio-quality 0 -o "~/Downloads/youtube-dl/%(title)s.%(ext)s" ' + link + ' && echo "Descarga terminada" || echo "Error, URL no válida."')
+        os.system('python youtube-dl --ffmpeg-location ffmpeg_ffprobe -q --audio-quality 0 -o "~/Downloads/youtube-dl/%(title)s.%(ext)s" ' + link + ' && echo "Descarga terminada" || echo "Error, URL no válida."')
     elif (input_format == "1" or input_format == "mp4"):
         print ("Downloading...")
-        os.system('python youtube-dl.py --ffmpeg-location ffmpeg_ffprobe --recode-video mp4 -q --audio-quality 0 -o "~/Downloads/youtube-dl/%(title)s.%(ext)s" ' + link + ' && echo "Descarga terminada" || echo "Error, URL no válida."')
+        os.system('python youtube-dl --ffmpeg-location ffmpeg_ffprobe --recode-video mp4 -q --audio-quality 0 -o "~/Downloads/youtube-dl/%(title)s.%(ext)s" ' + link + ' && echo "Descarga terminada" || echo "Error, URL no válida."')
     elif (input_format == "2" or input_format == "mkv"):
         print ("Downloading...")
-        os.system('python youtube-dl.py --ffmpeg-location ffmpeg_ffprobe --recode-video mkv -q --audio-quality 0 -o "~/Downloads/youtube-dl/%(title)s.%(ext)s" ' + link + ' && echo "Descarga terminada" || echo "Error, URL no válida."')
+        os.system('python youtube-dl --ffmpeg-location ffmpeg_ffprobe --recode-video mkv -q --audio-quality 0 -o "~/Downloads/youtube-dl/%(title)s.%(ext)s" ' + link + ' && echo "Descarga terminada" || echo "Error, URL no válida."')
     elif (input_format == "3" or input_format == "flv"):
         print ("Downloading...")
-        os.system('python youtube-dl.py --ffmpeg-location ffmpeg_ffprobe --recode-video flv -q --audio-quality 0 -o "~/Downloads/youtube-dl/%(title)s.%(ext)s" ' + link + ' && echo "Descarga terminada" || echo "Error, URL no válida."')
+        os.system('python youtube-dl --ffmpeg-location ffmpeg_ffprobe --recode-video flv -q --audio-quality 0 -o "~/Downloads/youtube-dl/%(title)s.%(ext)s" ' + link + ' && echo "Descarga terminada" || echo "Error, URL no válida."')
     elif (input_format == "4" or input_format == "webm"):
         print ("Downloading...")
-        os.system('python youtube-dl.py --ffmpeg-location ffmpeg_ffprobe --recode-video webm -q --audio-quality 0 -o "~/Downloads/youtube-dl/%(title)s.%(ext)s" ' + link + ' && echo "Descarga terminada" || echo "Error, URL no válida."')
+        os.system('python youtube-dl --ffmpeg-location ffmpeg_ffprobe --recode-video webm -q --audio-quality 0 -o "~/Downloads/youtube-dl/%(title)s.%(ext)s" ' + link + ' && echo "Descarga terminada" || echo "Error, URL no válida."')
     elif (input_format == "5" or input_format == "avi"):
         print ("Downloading...")
-        os.system('python youtube-dl.py --ffmpeg-location ffmpeg_ffprobe --recode-video avi -q --audio-quality 0 -o "~/Downloads/youtube-dl/%(title)s.%(ext)s" ' + link + ' && echo "Descarga terminada" || echo "Error, URL no válida."')
+        os.system('python youtube-dl --ffmpeg-location ffmpeg_ffprobe --recode-video avi -q --audio-quality 0 -o "~/Downloads/youtube-dl/%(title)s.%(ext)s" ' + link + ' && echo "Descarga terminada" || echo "Error, URL no válida."')
     elif (input_format == "6" or input_format == "ogg"):
         print ("Downloading...")
-        os.system('python youtube-dl.py --ffmpeg-location ffmpeg_ffprobe --extract-audio --audio-format vorbis --add-metadata --metadata-from-title "%(artist)s - %(title)s" -q --audio-quality 0 -o "~/Downloads/youtube-dl/%(title)s.%(ext)s" ' + link + ' && echo "Descarga terminada" || echo "Error, URL no válida."')
+        os.system('python youtube-dl --ffmpeg-location ffmpeg_ffprobe --extract-audio --audio-format vorbis --add-metadata --metadata-from-title "%(artist)s - %(title)s" -q --audio-quality 0 -o "~/Downloads/youtube-dl/%(title)s.%(ext)s" ' + link + ' && echo "Descarga terminada" || echo "Error, URL no válida."')
     elif (input_format == "7" or input_format == "mp3"):
         print ("Downloading...")
-        os.system('python youtube-dl.py --ffmpeg-location ffmpeg_ffprobe --extract-audio --audio-format mp3 --add-metadata --metadata-from-title "%(artist)s - %(title)s" -q --audio-quality 0 -o "~/Downloads/youtube-dl/%(title)s.%(ext)s" ' + link + ' && echo "Descarga terminada" || echo "Error, URL no válida."')
+        os.system('python youtube-dl --ffmpeg-location ffmpeg_ffprobe --extract-audio --audio-format mp3 --add-metadata --metadata-from-title "%(artist)s - %(title)s" -q --audio-quality 0 -o "~/Downloads/youtube-dl/%(title)s.%(ext)s" ' + link + ' && echo "Descarga terminada" || echo "Error, URL no válida."')
     elif (input_format == "8" or input_format == "m4a"):
         print ("Downloading...")
-        os.system('python youtube-dl.py --ffmpeg-location ffmpeg_ffprobe --extract-audio --audio-format m4a --add-metadata --metadata-from-title "%(artist)s - %(title)s" -q --audio-quality 0 -o "~/Downloads/youtube-dl/%(title)s.%(ext)s" ' + link + ' && echo "Descarga terminada" || echo "Error, URL no válida."')
+        os.system('python youtube-dl --ffmpeg-location ffmpeg_ffprobe --extract-audio --audio-format m4a --add-metadata --metadata-from-title "%(artist)s - %(title)s" -q --audio-quality 0 -o "~/Downloads/youtube-dl/%(title)s.%(ext)s" ' + link + ' && echo "Descarga terminada" || echo "Error, URL no válida."')
     elif (input_format == "9" or input_format == "wav"):
         print ("Downloading...")
-        os.system('python youtube-dl.py --ffmpeg-location ffmpeg_ffprobe --extract-audio --audio-format wav --add-metadata --metadata-from-title "%(artist)s - %(title)s" -q --audio-quality 0 -o "~/Downloads/youtube-dl/%(title)s.%(ext)s" ' + link + ' && echo "Descarga terminada" || echo "Error, URL no válida."')
+        os.system('python youtube-dl --ffmpeg-location ffmpeg_ffprobe --extract-audio --audio-format wav --add-metadata --metadata-from-title "%(artist)s - %(title)s" -q --audio-quality 0 -o "~/Downloads/youtube-dl/%(title)s.%(ext)s" ' + link + ' && echo "Descarga terminada" || echo "Error, URL no válida."')
     elif (input_format.lower() == "q"):
         print()
     else:
@@ -108,7 +108,7 @@ q = Quit
         search()
 
 
-if os.path.isfile("youtube-dl.py"):
+if os.path.isfile("youtube-dl"):
     search()
 else:
-    print ("youtube-dl.py does not exist")
+    print ("youtube-dl python binary does not exist")
