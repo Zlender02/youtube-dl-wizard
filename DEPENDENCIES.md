@@ -13,7 +13,6 @@ You need these dependencies for the script to work
 1) Download and install python3, from the website or your distribution repositories. Skip this step if you have it installed already.
 2) Download a compatible ffmpeg static release version for your CPU architecture.
 3) Move the files "ffmpeg" and "ffprobe" located at the root of that folder into the directory named "ffmpeg_ffprobe" in youtube-dl-wizard.
-4) Start the script
 
 ### Windows
 1) Download and install python3 from the Microsoft Store or the website. Skip this step if you have it installed already.
