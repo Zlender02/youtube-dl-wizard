@@ -1,6 +1,6 @@
 # Dependencies
 
-You need these dependencies for the script to work
+You need these dependencies for the script to work, please ignore this if you are downloading this via the [releases](https://github.com/Zlender02/youtube-dl-wizard/releases) page as it has the dependencies preloaded.
 - [youtube-dl](https://youtube-dl.org/downloads/latest/youtube-dl)
 - ffmpeg/ffprobe
   · [GNU/Linux](https://johnvansickle.com/ffmpeg/)
@@ -19,4 +19,4 @@ You need these dependencies for the script to work
 2) Download ffmpeg-release-essentials. Keep in mind that if you download it as a 7z compressed archive you need the tool [7-Zip](https://www.7-zip.org/) to uncompress it.
 3) Move the files "ffmpeg.exe" and "ffprobe.exe" located at the folder "bin" into the directory named "ffmpeg_ffprobe" in youtube-dl-wizard.
 
-You can use the same folder between multiple operating systems as long as the dependencies located correctly.
+**You can use the same folder between multiple operating systems as long as the dependencies located correctly.**
