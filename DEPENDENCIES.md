@@ -2,9 +2,7 @@
 
 You need these dependencies for the script to work, please ignore this if you are downloading this via the [releases](https://github.com/Zlender02/youtube-dl-wizard/releases) page as it has the dependencies preloaded.
 - [youtube-dl](https://youtube-dl.org/downloads/latest/youtube-dl)
-- ffmpeg/ffprobe
-  · [GNU/Linux](https://johnvansickle.com/ffmpeg/)
-  · [Windows](https://www.gyan.dev/ffmpeg/builds/)
+- ffmpeg/ffprobe: [GNU/Linux](https://johnvansickle.com/ffmpeg/), [Windows](https://www.gyan.dev/ffmpeg/builds/)
 - [Python3](https://www.python.org/downloads/)
 
 ## How to make the dependencies recognizable for the script.
