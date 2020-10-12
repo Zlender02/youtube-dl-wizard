@@ -6,9 +6,11 @@ import os.path
 import platform
 import getpass
 
+# Get platform and user information
 platform = platform.system()
 username = getpass.getuser()
 
+# Selection of the download format
 def format():
     global link
     print('''
@@ -30,6 +32,8 @@ q = Quit
     input_format = input("Response: ")
     
     print ()
+    # I wanted to use a case statement here, but quickly realized that python does not have one by default. Working on a workaround.
+    # youtube-dl converts the tilde (~) shortcut to the Windows user directory.
     if (input_format == "0"):
         print ("Downloading...")
         os.system('python youtube-dl --ffmpeg-location ffmpeg_ffprobe -q --audio-quality 0 -o "~/Downloads/youtube-dl/%(title)s.%(ext)s" ' + link)
@@ -65,7 +69,8 @@ q = Quit
     else:
         print ("Invalid option, try again.")
         format()
-
+    
+    # Detect OS to show the correct file location. No support for macOS yet.
     if platform == "Windows":
         print("Your download is located here:\n C:\\Users\\" + username + "\\Downloads\\youtube-dl")
     elif platform == "Linux":
@@ -75,11 +80,14 @@ q = Quit
     else:
         quit()
 
+# Assign the URL of the content they want to download to the variable "link"
 def search_has_url():
     global link
     link = input("Insert the link of the content you want to download: ")
     format()
 
+# Assign the search query with the prefix "ytsearch:" to the variable "link"
+# ytsearch: to automatically grab the URL of the first youtube search result
 def search_ytsearch():
     global link
     link = "ytsearch:" + '"' + input("Type your search query (The first result will be downloaded automatically): ") + '"'
@@ -107,7 +115,7 @@ q = Quit
         print ("Invalid option, try again.")
         search()
 
-
+# Check if youtube-dl exists. This system will be improved soon to add support for the installed version of the software (not the portable one).
 if os.path.isfile("youtube-dl"):
     search()
 else:
