@@ -9,9 +9,10 @@ import getpass
 # Get platform and user information
 platform = platform.system()
 username = getpass.getuser()
+format_content = ""
 
 # Selection of the download format
-def format():
+def format_selection():
     global link
     print('''
 In which format you want to download it?
@@ -34,47 +35,51 @@ q = Quit
     print ()
     # I wanted to use a case statement here, but quickly realized that python does not have one by default. Working on a workaround.
     # youtube-dl converts the tilde (~) shortcut to the Windows user directory.
+    
+    def youtube_dl_exec():
+        print ("Downloading...")
+        os.system('python youtube-dl -q %s --add-metadata --metadata-from-title "%%(artist)s - %%(title)s" --ffmpeg-location ffmpeg_ffprobe --audio-quality 0 -o "~/Downloads/youtube-dl/%%(title)s.%%(ext)s" %s' % (format_content,link))
+
     if (input_format == "0"):
-        print ("Downloading...")
-        os.system('python youtube-dl --ffmpeg-location ffmpeg_ffprobe -q --audio-quality 0 -o "~/Downloads/youtube-dl/%%(title)s.%%(ext)s" %s'%link)
+        youtube_dl_exec()
     elif (input_format == "1" or input_format == "mp4"):
-        print ("Downloading...")
-        os.system('python youtube-dl --ffmpeg-location ffmpeg_ffprobe --recode-video mp4 -q --audio-quality 0 -o "~/Downloads/youtube-dl/%%(title)s.%%(ext)s" %s'%link)
+        format_content = "--recode-video mp4"
+        youtube_dl_exec()
     elif (input_format == "2" or input_format == "mkv"):
-        print ("Downloading...")
-        os.system('python youtube-dl --ffmpeg-location ffmpeg_ffprobe --recode-video mkv -q --audio-quality 0 -o "~/Downloads/youtube-dl/%%(title)s.%%(ext)s" %s'%link)
+        format_content = "--recode-video mkv"
+        youtube_dl_exec()
     elif (input_format == "3" or input_format == "flv"):
-        print ("Downloading...")
-        os.system('python youtube-dl --ffmpeg-location ffmpeg_ffprobe --recode-video flv -q --audio-quality 0 -o "~/Downloads/youtube-dl/%%(title)s.%%(ext)s" %s'%link)
+        format_content = "--recode-video flv"
+        youtube_dl_exec()
     elif (input_format == "4" or input_format == "webm"):
-        print ("Downloading...")
-        os.system('python youtube-dl --ffmpeg-location ffmpeg_ffprobe --recode-video webm -q --audio-quality 0 -o "~/Downloads/youtube-dl/%%(title)s.%%(ext)s" %s'%link)
+        format_content = "--recode-video webm"
+        youtube_dl_exec()
     elif (input_format == "5" or input_format == "avi"):
-        print ("Downloading...")
-        os.system('python youtube-dl --ffmpeg-location ffmpeg_ffprobe --recode-video avi -q --audio-quality 0 -o "~/Downloads/youtube-dl/%%(title)s.%%(ext)s" %s'%link)
+        format_content = "--recode-video avi"
+        youtube_dl_exec()
     elif (input_format == "6" or input_format == "ogg"):
-        print ("Downloading...")
-        os.system('python youtube-dl --ffmpeg-location ffmpeg_ffprobe --extract-audio --audio-format vorbis --add-metadata --metadata-from-title "%%(artist)s - %%(title)s" -q --audio-quality 0 -o "~/Downloads/youtube-dl/%%(title)s.%%(ext)s" %s'%link)
+        format_content = "--extract-audio --audio-format vorbis"
+        youtube_dl_exec()
     elif (input_format == "7" or input_format == "mp3"):
-        print ("Downloading...")
-        os.system('python youtube-dl --ffmpeg-location ffmpeg_ffprobe --extract-audio --audio-format mp3 --add-metadata --metadata-from-title "%%(artist)s - %%(title)s" -q --audio-quality 0 -o "~/Downloads/youtube-dl/%%(title)s.%%(ext)s" %s'%link)
+        format_content = "--extract-audio --audio-format mp3"
+        youtube_dl_exec()
     elif (input_format == "8" or input_format == "m4a"):
-        print ("Downloading...")
-        os.system('python youtube-dl --ffmpeg-location ffmpeg_ffprobe --extract-audio --audio-format m4a --add-metadata --metadata-from-title "%%(artist)s - %%(title)s" -q --audio-quality 0 -o "~/Downloads/youtube-dl/%%(title)s.%%(ext)s" %s'%link)
+        format_content = "--extract-audio --audio-format m4a"
+        youtube_dl_exec()
     elif (input_format == "9" or input_format == "wav"):
-        print ("Downloading...")
-        os.system('python youtube-dl --ffmpeg-location ffmpeg_ffprobe --extract-audio --audio-format wav --add-metadata --metadata-from-title "%%(artist)s - %%(title)s" -q --audio-quality 0 -o "~/Downloads/youtube-dl/%%(title)s.%%(ext)s" %s'%link)
+        format_content = "--extract-audio --audio-format wav"
+        youtube_dl_exec()
     elif (input_format.lower() == "q"):
-        print()
+        quit()
     else:
         print ("Invalid option, try again.")
-        format()
+        format_selection()
     
     # Detect OS to show the correct file location. No support for macOS yet.
     if platform == "Windows":
-        print("Your download is located here:\n C:\\Users\\" + username + "\\Downloads\\youtube-dl")
+        print("Your download is located here:\n C:\\Users\\%s\\Downloads\\youtube-dl"%username)
     elif platform == "Linux":
-        print ("Your download is located here:\n /home/" + username + "/Downloads/youtube-dl")
+        print ("Your download is located here:\n /home/%s/Downloads/youtube-dl"%username)
     elif platform == "Darwin":
         # OS not supported yet.
         quit()
@@ -85,14 +90,14 @@ q = Quit
 def search_has_url():
     global link
     link = input("Insert the link of the content you want to download: ")
-    format()
+    format_selection()
 
 # Assign the search query with the prefix "ytsearch:" to the variable "link"
 # ytsearch: to automatically grab the URL of the first youtube search result
 def search_ytsearch():
     global link
     link = "ytsearch:" + '"' + input("Type your search query (The first result will be downloaded automatically): ") + '"'
-    format()
+    format_selection()
 
 def search():
     print('''
@@ -111,7 +116,7 @@ q = Quit
     elif (input_search == "2" or input_search == "No"):
         search_ytsearch()
     elif (input_search.lower() == "q"):
-        exit()
+        quit()
     else:
         print ("Invalid option, try again.")
         search()
