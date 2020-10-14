@@ -10,7 +10,10 @@ import getpass
 platform = platform.system()
 username = getpass.getuser()
 format_content = ""
+# download_path will be changeable in the near future.
 download_path = "~/Downloads/youtube-dl"
+# In the near future this script will no longer need portable dependencies to work. It would first check if its installed natively on the system and then check for portable dependencies.
+dependencies = "ffmpeg_ffprobe"
 
 # Selection of the download format
 def format_selection():
@@ -35,12 +38,12 @@ q = Quit
     input_format = input("Response: ")
     
     print ()
-    # I wanted to use a case statement here, but quickly realized that python does not have one by default. Working on a workaround.
+    # I wanted to use a case statement here, but quickly realized that python does not have one by default. Looking for alternatives.
     # youtube-dl converts the tilde (~) shortcut to the Windows user directory.
     
     def youtube_dl_exec():
         print ("Downloading...")
-        os.system('python youtube-dl -q %s --add-metadata --metadata-from-title "%%(artist)s - %%(title)s" --ffmpeg-location ffmpeg_ffprobe --audio-quality 0 -o "%s/%%(title)s.%%(ext)s" %s' % (format_content,download_path,link))
+        os.system('python youtube-dl -q %s --add-metadata --metadata-from-title "%%(artist)s - %%(title)s" --ffmpeg-location %s --audio-quality 0 -o "%s/%%(title)s.%%(ext)s" %s' % (format_content,dependencies,download_path,link))
 
     if (input_format == "0"):
         youtube_dl_exec()
