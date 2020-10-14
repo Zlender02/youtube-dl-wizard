@@ -10,10 +10,12 @@ import getpass
 platform = platform.system()
 username = getpass.getuser()
 format_content = ""
+download_path = "~/Downloads/youtube-dl"
 
 # Selection of the download format
 def format_selection():
     global link
+    global format_content
     print('''
 In which format you want to download it?
 
@@ -38,7 +40,7 @@ q = Quit
     
     def youtube_dl_exec():
         print ("Downloading...")
-        os.system('python youtube-dl -q %s --add-metadata --metadata-from-title "%%(artist)s - %%(title)s" --ffmpeg-location ffmpeg_ffprobe --audio-quality 0 -o "~/Downloads/youtube-dl/%%(title)s.%%(ext)s" %s' % (format_content,link))
+        os.system('python youtube-dl -q %s --add-metadata --metadata-from-title "%%(artist)s - %%(title)s" --ffmpeg-location ffmpeg_ffprobe --audio-quality 0 -o "%s/%%(title)s.%%(ext)s" %s' % (format_content,download_path,link))
 
     if (input_format == "0"):
         youtube_dl_exec()
