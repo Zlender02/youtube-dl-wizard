@@ -5,5 +5,3 @@ A wizard to easily download and convert media with youtube-dl, ffmpeg and ffprob
 ## Disclaimer
 The script will not work unless the dependencies are satisfied correctly, although the project releases have the dependencies preloaded.
 The instructions are located in [DEPENDENCIES.md](DEPENDENCIES.md).
-
-test
