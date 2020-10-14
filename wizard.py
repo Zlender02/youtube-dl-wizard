@@ -104,7 +104,7 @@ def search_ytsearch():
     link = "ytsearch:" + '"' + input("Type your search query (The first result will be downloaded automatically): ") + '"'
     format_selection()
 
-def search():
+def search_selection():
     print('''
 Do you know the URL of the content you want to download?
 
@@ -124,10 +124,10 @@ q = Quit
         quit()
     else:
         print ("Invalid option, try again.")
-        search()
+        search_selection()
 
 # Check if youtube-dl exists. This system will be improved soon to add support for the installed version of the software (not the portable one).
 if os.path.isfile("youtube-dl"):
-    search()
+    search_selection()
 else:
     print ("youtube-dl python binary does not exist")
