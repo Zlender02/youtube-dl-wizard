@@ -76,6 +76,7 @@ q = Quit
     elif platform == "Linux":
         print ("Your download is located here:\n /home/" + username + "/Downloads/youtube-dl")
     elif platform == "Darwin":
+        # OS not supported yet.
         quit()
     else:
         quit()
