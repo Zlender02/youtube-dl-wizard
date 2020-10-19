@@ -79,15 +79,13 @@ q = Quit
     else:
         print ("Invalid option, try again.")
         format_selection()
-    
-    # Detect OS to show the correct file location. No support for macOS yet.
+
     if platform == "Windows":
         print("Your download is located here:\n C:\\Users\\%s\\Downloads\\youtube-dl"%username)
     elif platform == "Linux":
         print ("Your download is located here:\n /home/%s/Downloads/youtube-dl"%username)
     elif platform == "Darwin":
-        # OS not supported yet.
-        quit()
+        print ("Your download is located here:\n /Users/%s/Downloads/youtube-dl"%username)
     else:
         quit()
 
