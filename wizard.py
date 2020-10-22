@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
 import os
 import sys
 import os.path
-import platform
-import getpass
+import platform # from getpass import getuser
+import getpass # from getpass import getuser
 
 # Get platform and user information
 platform = platform.system()
